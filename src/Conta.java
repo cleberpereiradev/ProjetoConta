@@ -38,16 +38,20 @@ public class Conta {
 
 
 
-    public double sacar(double valor){
-        this.saldo -= valor;
-        return this.saldo >= valor ? 1 : 0;
+    public int sacar(double valor){
+        if(valor > saldo){
+            return 0;
+        }else{
+        saldo = saldo - valor;
+        return 1;
+        }
     }
 
     public void depositar(double valor){
         if(valor <= 0){
             System.out.println("Valor inválido para opção depósito");
         }else{
-            this.saldo += valor;
+            saldo += valor;
         }
 
     }
